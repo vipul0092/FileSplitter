@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{86DC1F06-483F-4F95-A7A0-D357DA1B1F74}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FileSplitter</RootNamespace>
+    <AssemblyName>FileSplitter</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>idac1.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualC" />
+    <Reference Include="Microsoft.VisualC.STLCLR" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\AppSettings.cs" />
+    <Compile Include="Classes\FileNFolderRelated.cs" />
+    <Compile Include="Classes\FolderJoinWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\FolderSplitWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\NativeAPIHandler.cs" />
+    <Compile Include="Classes\RegAccess.cs" />
+    <Compile Include="EventArgs Classes\CloseProgressFormEventArgs.cs" />
+    <Compile Include="EventArgs Classes\FileWorkDoneEventArgs.cs" />
+    <Compile Include="Classes\MetaData.cs" />
+    <Compile Include="EventArgs Classes\SplitProgressUpdateEventArgs.cs" />
+    <Compile Include="fileSplitter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fileSplitter.Designer.cs">
+      <DependentUpon>fileSplitter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\FileUtilities.cs" />
+    <Compile Include="FolderOpsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FolderOpsForm.Designer.cs">
+      <DependentUpon>FolderOpsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hashing\Adler32.cs" />
+    <Compile Include="Hashing\CRC32.cs" />
+    <Compile Include="Hashing\MurMurHash3.cs" />
+    <Compile Include="Misc Forms\AboutApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Misc Forms\AboutApplication.Designer.cs">
+      <DependentUpon>AboutApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Misc Forms\Deletefiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Misc Forms\Deletefiles.Designer.cs">
+      <DependentUpon>Deletefiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Misc Forms\ProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Misc Forms\ProgressForm.Designer.cs">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Misc Forms\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Misc Forms\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Misc Forms\Test Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Misc Forms\Test Form.Designer.cs">
+      <DependentUpon>Test Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="StartingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StartingForm.Designer.cs">
+      <DependentUpon>StartingForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="fileSplitter.resx">
+      <DependentUpon>fileSplitter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FolderOpsForm.resx">
+      <DependentUpon>FolderOpsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Misc Forms\AboutApplication.resx">
+      <DependentUpon>AboutApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Misc Forms\Deletefiles.resx">
+      <DependentUpon>Deletefiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Misc Forms\ProgressForm.resx">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Misc Forms\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Misc Forms\Test Form.resx">
+      <DependentUpon>Test Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartingForm.resx">
+      <DependentUpon>StartingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="idac1.ico" />
+    <None Include="Resources\Extract.bmp" />
+    <None Include="Resources\Add.bmp" />
+    <None Include="Resources\ExtractAll.bmp" />
+    <None Include="Resources\ExtractAll1.bmp" />
+    <None Include="Resources\ExtractAll.jpg" />
+    <None Include="Resources\Open.bmp" />
+    <None Include="Resources\Otherfiles.ico" />
+    <None Include="Resources\OtherFile.ico" />
+    <None Include="Resources\Settings2.bmp" />
+    <None Include="Resources\Settings.bmp" />
+    <None Include="Resources\AboutProg.jpg" />
+    <None Include="Resources\AboutSelected.jpg" />
+    <None Include="Resources\AboutUnselected.jpg" />
+    <None Include="Resources\ExitSelected.jpg" />
+    <None Include="Resources\ExitUnselected.jpg" />
+    <None Include="Resources\JoinFileSelected.jpg" />
+    <None Include="Resources\JoinFileUnselected.jpg" />
+    <None Include="Resources\ProgTitle.jpg" />
+    <None Include="Resources\SplitFileSelected.jpg" />
+    <None Include="Resources\SplitFileUnselected.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
